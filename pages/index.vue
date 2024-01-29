@@ -29,13 +29,14 @@ type Products =
 
 
 // try 1::
-// const get_products = async (): Promise<void> => {
-//   is_loading.value = true
-//   const res = await fetch("https://fakestoreapi.com/products");
-//   const resjson = await res.json();
-//   is_loading.value = false
-//   products_list.value = resjson;
-// };
+const get_products = async (): Promise<void> => {
+  is_loading.value = true
+  const res = await fetch("https://fakestoreapi.com/products");
+  const resjson = await res.json();
+  is_loading.value = false
+  products_list.value = resjson;
+};
+get_products();
 
 
 // try 2::
@@ -56,9 +57,8 @@ type Products =
 // get_products();
 
 // try 4::
-const {data: products} = await useAsyncData('products', () => $fetch('https://fakestoreapi.com/products'));
-products_list.value = products.value
-
+// const {data: products} = await useAsyncData('products', (): Promise<Products[]> => $fetch('https://fakestoreapi.com/products'));
+// products_list.value = products.value;
 </script>
 
 <style scoped>
